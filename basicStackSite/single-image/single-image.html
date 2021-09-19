@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <h3>MEWS</h3>
+
+    <ul>
+      <a href="../index.html">
+        <li><p>Overview</p></li>
+      </a>
+      <a href="../trending/trending.html">
+        <li><p>Trending</p></li>
+      </a>
+      <a href="../ri-search/ri-search.html">
+        <li><p>Ri-Search</p></li>
+      </a>
+      <a href="../about/about.html">
+        <li><p>About</p></li>
+      </a>
+    </ul>
+
+    <a href="/login/login.html"><p>Login</p></button></a>
+    
+    <hr />
+    <div>
+      <a href="../index.html"><p>Return to Overview</p></a>
+      
+      <div>
+        <p>Bounding Boxes</p>
+
+        <select name="show-boxes" id="show-boxes">
+          <option value="Show all">Show all</option>
+          <option value="Faces">Faces</option>
+          <option value="Objects">Objects</option>
+          <option value="Manipulations">Manipulations</option>
+          <option value="Hide all">Hide all</option>
+        </select>  
+
+        <img 
+          src="../images/sample-image-w-bb.jpg" 
+          alt="Image with boxes" 
+          width="100%" />
+        
+        <div>
+          <h3>BOXED SUB IMAGES</h3>
+          <p><i>Use images contained within the main image to search the database for similar content</i></p>
+          
+          <div>
+            <img 
+              src="../images/sample-bb-1.jpg"
+              alt="Palestine flag" 
+              width=96
+              height=96 />
+
+              <img 
+              src="../images/sample-bb-2.jpg"
+              alt="Face" 
+              width=73
+              height=96 />
+
+              <img 
+              src="../images/sample-bb-3.jpg"
+              alt="Face" 
+              width=78
+              height=96 />
+
+          </div>
+
+          <div>
+            <h4>IMAGE INFORMATION</h4>
+
+            <div>
+              <p><b>Platform</b></p>
+              <p><i>Posted: 2021-05-22 05:16:25</i></p>
+              <p><i>Scoped: 2021-05-30 09:42:415</i></p>
+            </div>
+
+            <div>
+              <p><b>Username</b></p>
+              <p>janezjansaSDS</p>
+            </div>
+
+            <div>
+              <p><b>Hashtags</b></p>
+              <p>#Hamas</p>
+            </div>
+
+            <div>
+              <p><b>Related Text</b></p>
+              <p>Si predstavljate, da v Nem?iji sin vrhovnega dr avnega to ilca nekaznovano organizira nezakonita zbiranja v podporo terorizmu?
+                In skupaj s podporniki teroristi?ne organizacije #Hamas sredi epidemije ali ??@policija_si?? in zdravo pamet?</p>
+            </div>
+
+            <div>
+              <p><b>Objects in Image</b></p>
+              <p>person:0.998, person:0.996, person:0.994, person:0.982, person:0.847,
+                 bicycle:0.76, person:0.759, person:0.724, kite:0.72, person:0.673, handbag:0.572, banner, tree, pavement, building</p>
+            </div>
+
+            <div>
+              <p><b>Heatmaps</b></p>
+
+              <img 
+                src="../images/sample-heatmap.jpg"
+                alt="Heatmap 1"
+                width=90
+                height=150 />
+
+                <img 
+                src="../images/sample-heatmap-2.jpg"
+                alt="Heatmap 1"
+                width=90
+                height=150 />
+
+                <img 
+                src="../images/sample-heatmap-3.jpg"
+                alt="Heatmap 1"
+                width=90
+                height=150 />
+            </div>
+          </div>
+      </div>
+    <div>
+      <h3>SIMILAR IMAGES</h3>
+
+      <select name="similarity-type" id="similarity-type">
+        <option value="Related Text / Hashtags">Related text / hashtags</option>
+        <option value="People in image">People in image</option>
+        <option value="Objects in image">Objects in image</option>
+        <option value="Visual similarity">Visual similarity</option>
+      </select>
+      
+      <div>
+        <img 
+          src="../images/hamas-thumb-1.jpg"
+          alt="Hamas thumbnail"
+          height=89
+          width=89
+          />
+
+          <p><b>Image Identifier</b></p>
+          <p>Key Metadata</p>
+          <p><i>Similarity: 89%</i></p>
+      </div>
+
+      <hr />
+
+      <div>
+          <img 
+            src="../images/hamas-thumb-2.jpg"
+            alt="Hamas thumbnail"
+            height=89
+            width=89
+            />
+  
+            <p><b>Image Identifier</b></p>
+            <p>Key Metadata</p>
+            <p><i>Similarity: 87%</i></p>
+        </div>
+  
+        <hr />
+
+        <div>
+            <img 
+              src="../images/hamas-thumb-3.jpg"
+              alt="Hamas thumbnail"
+              height=89
+              width=89
+              />
+    
+              <p><b>Image Identifier</b></p>
+              <p>Key Metadata</p>
+              <p><i>Similarity: 82%</i></p>
+          </div>
+    
+          <hr />
+    </div>
+
+  </body>
+</html>
