@@ -4,39 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Audiowide"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Hind Siliguri"
+    />
     <title>CCUSA</title>
     <!-- Original site: http://www.collegecurlingusa.org -->
   </head>
-  <p style="text-align: center;">
-    <!-- MAKE THIS FRIENDLY FOR MOBILE-->
-    <!-- Resize and store locally ?-->
-    <img
-      src="/images/Banner_Home_1024x100.jpeg"
-      alt="Banner Logo for College Curling"
-    />
-  </p>
   <body>
-    <ul class="navigation">
-      <!-- Nagivation Structure -->
-      <li><a href="about/index.html">About</a></li>
-      <li><a href="standings/index.html">Standings</a></li>
-      <li><a href="events/index.html">Events</a></li>
-      <li><a href="streams/index.html">Streams</a></li>
-      <li><a href="forms/index.html">Forms</a></li>
-      <li><a href="contact/index.html">Contact</a></li>
-      <li><a href="previous_years/index.html">Previous Years</a></li>
-    </ul>
-  </body>
-  <hr />
-  <p style="text-align: center;">
-    <img src="/images/logo_280x250.jpeg" alt="Curling Logo" />
-  </p>
-  <hr />
-  <body>
-    <p>
-      For more information regarding the USA Curling College Tour and
-      Championship
-    </p>
-    <p>Contact Gordon Maclean: info@collegecurlingusa.org</p>
+    <nav class="navContainer">
+      <div class="navHeader">
+        <a href="index.html">
+          <img
+            src="/images/usa-curling_1200x675.png"
+            alt="USA Curling logo"
+            height="50vh"
+          />
+          <b>USA CURLING</b>
+        </a>
+      </div>
+      <ul class="navigation">
+        <!-- Nagivation Structure -->
+        <li><a href="about/index.html">About</a></li>
+        <li><a href="standings/index.html">Standings</a></li>
+        <li><a href="events/index.html">Events</a></li>
+        <li><a href="streams/index.html">Streams</a></li>
+        <li><a href="forms/index.html">Forms</a></li>
+        <li><a href="contact/index.html">Contact</a></li>
+        <li><a href="previous_years/index.html">Previous Years</a></li>
+      </ul>
+
+      <!-- This select doesnt actually function, we will need some javascript for that -->
+      <select>
+        <option>About</option>
+        <option>Standings</option>
+        <option>Events</option>
+        <option>Streams</option>
+        <option>Forms</option>
+        <option>Contact</option>
+        <option>Previous Years</option>
+      </select>
+    </nav>
+    <hr />
+    <div class="content">
+      <h3>
+        These images are to show scroll properties of the content container
+      </h3>
+      <div class="helper">
+        <img src="/images/logo_280x250.jpeg" alt="Curling Logo" />
+      </div>
+      <div class="helper">
+        <img src="/images/logo_280x250.jpeg" alt="Curling Logo" />
+      </div>
+      <div class="helper">
+        <img src="/images/logo_280x250.jpeg" alt="Curling Logo" />
+      </div>
+      <div class="helper">
+        <img src="/images/logo_280x250.jpeg" alt="Curling Logo" />
+      </div>
+    </div>
+    <hr />
+    <footer>
+      <p>
+        For more information regarding the USA Curling College Tour and
+        Championship
+      </p>
+      <p>Contact Gordon Maclean: info@collegecurlingusa.org</p>
+    </footer>
   </body>
 </html>
