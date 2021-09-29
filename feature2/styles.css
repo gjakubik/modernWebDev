@@ -1,0 +1,99 @@
+body {
+  font-family: "Hindi Siliguri", sans-serif;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  background-color: lightskyblue;
+  margin-bottom: -10px;
+}
+
+nav select {
+  margin-right: 10px;
+  display: none;
+}
+
+nav select a {
+  text-decoration: none;
+}
+
+@media (max-width: 910px) {
+  .navigation {
+    display: none !important;
+  }
+  nav select {
+    display: inline-block;
+  }
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+.navigation li {
+  padding: 2vw;
+  text-decoration: none;
+}
+.navigation li:hover {
+  font-size: 120%;
+  border-bottom: solid;
+  border-bottom-color: #4f4f4f;
+  border-bottom-width: 2px;
+}
+.navigation .navHeader:hover {
+  text-decoration: none;
+  border-bottom: none;
+}
+.navigation a {
+  text-decoration: none;
+  color: #000000;
+}
+.navigation li b {
+  font-size: 25px;
+}
+.navHeader a {
+  font-family: "Audiowide", sans-serif;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+  height: 90vh;
+  overflow-y: scroll;
+}
+/* Removes ugly windows scrollbar */
+.content::-webkit-scrollbar {
+  width: 5px;
+}
+.content::-webkit-scrollbar-thumb {
+  background-color: lightskyblue; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+}
+
+.helper {
+  height: 40vh;
+  width: 50vw;
+  margin-left: 30%;
+  margin-top: 20vh;
+}
+
+footer {
+  margin-top: -7px;
+  padding-top: 10px;
+  background-color: #f9f9f9;
+}

@@ -1,7 +1,7 @@
 {
-  "name": "lecture-4",
+  "name": "college-curling",
   "version": "1.0.0",
-  "description": "",
+  "description": "A redesign of the college curling website.",
   "main": "index.html",
   "scripts": {
     "start": "serve",
