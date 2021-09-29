@@ -3,19 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+    <link href="../styles.css" type="text/css" rel="stylesheet" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Audiowide"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Hind Siliguri"
+    />
     <title>CCUSA - Previous Years</title>
   </head>
   <body>
-    <ul class="navigation">
-      <!-- Nagivation Structure -->
-      <li><a href="../index.html">Home</a></li>
-    </ul>
+    <nav class="navContainer">
+      <div class="navHeader">
+        <a href="../index.html">
+          <img
+            src="../images/usa-curling_1200x675.png"
+            alt="USA Curling logo"
+            height="50vh"
+          />
+          <b>USA CURLING</b>
+        </a>
+      </div>
+      <ul class="navigation">
+        <!-- Nagivation Structure -->
+        <li><a href="../about/index.html">About</a></li>
+        <li><a href="../standings/index.html">Standings</a></li>
+        <li><a href="../events/index.html">Events</a></li>
+        <li><a href="../streams/index.html">Streams</a></li>
+        <li><a href="../forms/index.html">Forms</a></li>
+        <li><a href="../contact/index.html">Contact</a></li>
+        <li><a href="../previous_years/index.html">Previous Years</a></li>
+      </ul>
+
+      <!-- This select doesnt actually function, we will need some javascript for that -->
+      <select>
+        <option>About</option>
+        <option>Standings</option>
+        <option>Events</option>
+        <option>Streams</option>
+        <option>Forms</option>
+        <option>Contact</option>
+        <option>Previous Years</option>
+      </select>
+    </nav>
+    <hr />
+    <div class="content">
+      <form id="form">
+        <input type="search" id="query" name="q" placeholder="Search..." />
+        <button>Search</button>
+      </form>
+    </div>
+    <hr />
+    <footer>
+      <p>
+        For more information regarding the USA Curling College Tour and
+        Championship
+      </p>
+      <p>Contact Gordon Maclean: info@collegecurlingusa.org</p>
+    </footer>
   </body>
-  <form id="form">
-    <input type="search" id="query" name="q" placeholder="Search..." />
-    <button>Search</button>
-  </form>
+
   <!-- Make this search for many things like players, games, and standings -->
   <!-- Archived standings from previous years can be added here-->
   <!-- Information about that year's national championship could be added too -->
