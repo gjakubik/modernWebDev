@@ -1,5 +1,6 @@
 import './style';
 import NavBar from './components/NavBar';
+import Parse from 'parse';
 
 export default function App() {
 	return (
