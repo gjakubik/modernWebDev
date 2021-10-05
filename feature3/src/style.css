@@ -49,6 +49,7 @@ nav select a {
   border-bottom: solid;
   border-bottom-color: #4f4f4f;
   border-bottom-width: 2px;
+  font-weight: 'bold';
 }
 .navigation .navHeader:hover {
   text-decoration: none;
