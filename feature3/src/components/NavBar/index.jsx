@@ -1,28 +1,33 @@
 import './style';
 import img from '../../images/logo.png';
 import '@fontsource/audiowide';
+import { Link } from 'preact-router';
+
+import { PAGES } from '../../constants';
 
 export default function NavBar() {
+	console.log(PAGES);
+
 	return (
 		<nav class="navContainer">
 			<div class="navHeader">
-				<a href="index.html">
+				<Link href="/">
 				<img
 					src={img}
 					alt="USA Curling logo"
 					height={80}
 				/>
 				<b>USA CURLING</b>
-				</a>
+				</Link>
 			</div>
 			<ul class="navigation">
-				<li><a href="about/index.html">About</a></li>
-				<li><a href="standings/index.html">Standings</a></li>
-				<li><a href="events/index.html">Events</a></li>
-				<li><a href="streams/index.html">Streams</a></li>
-				<li><a href="forms/index.html">Forms</a></li>
-				<li><a href="contact/index.html">Contact</a></li>
-				<li><a href="previous_years/index.html">Previous Years</a></li>
+				{
+				
+				PAGES.map((page) => {
+					return (
+						<li><Link href={page.link} activeStyle={{fontWeight: 'bold'}}>{page.name}</Link></li>
+					);
+				})}
 			</ul>
 
 			<select>
