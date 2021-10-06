@@ -41,4 +41,8 @@ const PAGES = [
     },
 ];
 
-export { PAGES };
+const PARSE_APP_ID   = 'LQXEYSgyvBYjP9pJfVfvr8XxflonqIDBFboNSbYh';
+const PARSE_JS_KEY   = 'C9Y9dYHQnKqWDH53UybE1JLl0zM4JS2NsqEUrjIE';
+const PARSE_HOST_URL = 'https://parseapi.back4app.com/';
+
+export { PAGES, PARSE_APP_ID, PARSE_HOST_URL, PARSE_JS_KEY };
