@@ -41,10 +41,11 @@ const PAGES = [
     },
 ];
 
-//const BASE_URL = "https://parseapi.back4app.com/";
-
 const BASE_URL = "https://reqres.in/api";
-
 const REST_API_KEY = "XpDK1Zm5r0cX3bZKiuPrsqdTbzXOBSin3YKcb5hR";
 
-export { PAGES, BASE_URL, REST_API_KEY };
+const PARSE_APP_ID   = 'LQXEYSgyvBYjP9pJfVfvr8XxflonqIDBFboNSbYh';
+const PARSE_JS_KEY   = 'C9Y9dYHQnKqWDH53UybE1JLl0zM4JS2NsqEUrjIE';
+const PARSE_HOST_URL = 'https://parseapi.back4app.com/';
+
+export { PAGES, PARSE_APP_ID, PARSE_HOST_URL, PARSE_JS_KEY, BASE_URL, REST_API_KEY };
