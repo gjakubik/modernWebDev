@@ -6,6 +6,7 @@ import './style';
 const SchoolList = () => {
   const schools = getSchools();
 
+  //Basic display of schools and their names
   return (
     <div>
       <hr />
