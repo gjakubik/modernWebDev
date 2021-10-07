@@ -3,7 +3,7 @@ import { BASE_URL, REST_API_KEY } from "../constants.js"
 
 export const getStandings = () => {
   return axios
-    .get(`${BASE_URL}/users`)
+    .get(`${BASE_URL}/classes/Schools/tmDV5ChJCG`)
     .then((response) => {
       console.log(response.data);
       return response.data.data;
