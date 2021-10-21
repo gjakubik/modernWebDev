@@ -1,9 +1,9 @@
 # Modern Web Development
 #### Repository to track assignments for my Modern Web Development Class
 
-## Developed by:
-# Gavin Jakubik
-# Quinn Bardwell
+### Developed by:
+#### Gavin Jakubik
+#### Quinn Bardwell
 
 ### Feature 1
 Basic html only site
