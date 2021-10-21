@@ -1,0 +1,284 @@
+{
+  "schools": [
+    {
+      "id": 19661,
+      "name": "University of Gracey",
+      "location": "Helen, Idaho",
+      "players": [
+        29534,
+        29969,
+        23669,
+        20051,
+        27793,
+        22394,
+        23130,
+        26740,
+        21690,
+        23646,
+        21265,
+        24390,
+        27655,
+        29636
+      ],
+      "coaches": [
+        42601,
+        42010
+      ],
+      "matches": [
+        34490,
+        35285,
+        39114,
+        36128,
+        31390,
+        39181,
+        30824,
+        33168
+      ],
+      "events": [
+        51595,
+        58237
+      ],
+      "contacts": {
+        "emails": [
+          "mollykane@providco.com",
+          "yorkacevedo@brainclip.com",
+          "kittypeters@aquamate.com"
+        ],
+        "phones": [
+          "(826) 544-3438",
+          "(905) 535-3245",
+          "(877) 446-2682"
+        ]
+      }
+    },
+    {
+      "id": 14519,
+      "name": "University of Vivian",
+      "location": "Woodlands, Georgia",
+      "players": [
+        21319,
+        21864,
+        29353,
+        26825,
+        27593,
+        20320,
+        23414,
+        25152,
+        22467,
+        29922,
+        27422,
+        28711,
+        21083,
+        27305,
+        23973
+      ],
+      "coaches": [
+        48896,
+        43772,
+        42449
+      ],
+      "matches": [
+        32084,
+        37819
+      ],
+      "events": [
+        52257,
+        57051
+      ],
+      "contacts": {
+        "emails": [
+          "washingtonharding@comvex.com",
+          "watkinsmoreno@codact.com",
+          "doreenreyes@sealoud.com"
+        ],
+        "phones": [
+          "(901) 420-2645"
+        ]
+      }
+    }
+  ],
+  "players": [
+    {
+      "id": 22114,
+      "first_name": "Liz",
+      "last_name": "Preston",
+      "school_id": 16649,
+      "matches": [
+        37276,
+        34922
+      ],
+      "events": [
+        57293,
+        51630,
+        53841
+      ]
+    },
+    {
+      "id": 28543,
+      "first_name": "Nguyen",
+      "last_name": "Parker",
+      "school_id": 18398,
+      "matches": [
+        32453,
+        31386,
+        36633,
+        34446,
+        33482,
+        39596,
+        34261
+      ],
+      "events": []
+    }
+  ],
+  "events": [
+    {
+      "id": 59796,
+      "type": "large_event",
+      "host": 12076,
+      "teams": [
+        17234,
+        19216,
+        12751
+      ],
+      "location": "Bayview, Nevada",
+      "date_start": "2021-06-08",
+      "date_end": "2014-05-14",
+      "1st": 13940,
+      "2nd": 15530,
+      "matches": [
+        33762,
+        37360,
+        30889,
+        31609
+      ]
+    },
+    {
+      "id": 56910,
+      "type": "large_event",
+      "host": 10232,
+      "teams": [
+        10841,
+        13187,
+        12061,
+        11767,
+        12144,
+        17248,
+        18827,
+        19128,
+        19002,
+        16163,
+        19856
+      ],
+      "location": "Cherokee, Palau",
+      "date_start": "2020-02-24",
+      "date_end": "2019-08-19",
+      "1st": 12151,
+      "2nd": 12067,
+      "matches": [
+        32189,
+        32692,
+        36368,
+        36496,
+        38663
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "start_time": "11:03:45 +05:00",
+      "team1": 16267,
+      "team2": 10842,
+      "winner": 16267,
+      "team1_score": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "team2_score": [
+        0,
+        0,
+        2,
+        3,
+        0,
+        1,
+        0,
+        2
+      ],
+      "team1_players": {
+        "lead": 28861,
+        "second": 21695,
+        "vice": 25902,
+        "skip": 29036,
+        "coaches": [
+          [
+            48607,
+            42377
+          ]
+        ]
+      },
+      "team2_players": {
+        "lead": 22303,
+        "second": 27392,
+        "vice": 29170,
+        "skip": 22003,
+        "coaches": [
+          []
+        ]
+      }
+    },
+    {
+      "start_time": "03:03:00 +04:00",
+      "team1": 10952,
+      "team2": 11207,
+      "winner": 11207,
+      "team1_score": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0
+      ],
+      "team2_score": [
+        0,
+        0,
+        2,
+        3,
+        0,
+        1,
+        0,
+        2
+      ],
+      "team1_players": {
+        "lead": 20665,
+        "second": 28615,
+        "vice": 28228,
+        "skip": 21034,
+        "coaches": [
+          [
+            49681
+          ]
+        ]
+      },
+      "team2_players": {
+        "lead": 20701,
+        "second": 27336,
+        "vice": 24618,
+        "skip": 23797,
+        "coaches": [
+          [
+            49066,
+            48187
+          ]
+        ]
+      }
+    }
+  ]
+}
