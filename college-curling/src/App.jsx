@@ -13,19 +13,9 @@ import { PAGES } from "./constants";
 
 const App = () => {
 
-    const [showNav, setShowNav] = useState(false);
-	const history = useHistory();
-
-    const changeView = (link) => {
-		console.log("pushing: ", link);
-        if (link) {
-            history.push(link);
-        }
-	};
-
     return (
         <Router>
-            <NavBar showNav={showNav} setShowNav={setShowNav} changeView={changeView}/>
+            <NavBar />
             <Switch>
                 <Route exact path="/" component={HomeView} />
                 {PAGES.map((page) => (<Route path={page.link}>{page.component}</Route>))}

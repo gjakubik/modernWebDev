@@ -1,33 +1,29 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
-import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+
 import '@fontsource/audiowide';
+
+import SideDrawer from './SideDrawer';
 
 import { PAGES } from '../../constants';
 
-export default function NavBar({showNav, setShowNav, changeView}) {
+export default function NavBar() {
 
 	// Pages is used to define routing and page names
 	// This will make the navbar easy to update
 	console.log(PAGES);
 
+	const [showNav, setShowNav] = useState(false);
 	const history = useHistory();
 
 	return (
@@ -62,40 +58,7 @@ export default function NavBar({showNav, setShowNav, changeView}) {
 				</Toolbar>
 				</AppBar>
 			</Box>
-			<Drawer
-				anchor='left'
-				open={showNav}
-				onClose={() => setShowNav(false)}
-			>
-				<Box
-					sx={{ width: 250 }}
-					role="presentation"
-					onClick={() => setShowNav(false)}
-					onKeyDown={() => setShowNav(false)}
-				>
-					<List>
-						{PAGES.map((page) => (
-							<ListItem button component={Link} to={page.link} key={page.name}>
-								<ListItemIcon>
-								{page.icon}
-								</ListItemIcon>
-								<ListItemText primary={page.name}/>
-							</ListItem>
-						))}
-					</List>
-					<Divider />
-					<List>
-						{['All mail', 'Trash', 'Spam'].map((text, index) => (
-						<ListItem button key={text}>
-							<ListItemIcon>
-							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-							</ListItemIcon>
-							<ListItemText primary={text} />
-						</ListItem>
-						))}
-					</List>
-				</Box>
-			</Drawer>
+			<SideDrawer showNav={showNav} setShowNav={setShowNav} />
 		</React.Fragment>
 	);
 }

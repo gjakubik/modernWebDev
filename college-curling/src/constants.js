@@ -9,7 +9,6 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
-import HomeView from "./components/HomeView";
 import AboutView from "./components/AboutView";
 import StandingsView from "./components/StandingsView";
 import EventsView from "./components/EventsView";
