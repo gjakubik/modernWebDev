@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { getSchools } from "../../services/schools.js";
-import { SCHOOLS } from "../../constants.js"
+import { SCHOOLS }    from "../../constants.js"
 
 const SchoolList = () => {
   const schools = getSchools();

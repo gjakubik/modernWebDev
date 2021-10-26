@@ -2,22 +2,22 @@
 * File containing constant values used throughout the application
 */
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import InfoIcon from '@mui/icons-material/Info';
-import EventIcon from '@mui/icons-material/Event';
-import ComputerIcon from '@mui/icons-material/Computer';
-import ListAltIcon from '@mui/icons-material/ListAlt';
+import InfoIcon        from '@mui/icons-material/Info';
+import EventIcon       from '@mui/icons-material/Event';
+import ComputerIcon    from '@mui/icons-material/Computer';
+import ListAltIcon     from '@mui/icons-material/ListAlt';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
+import AccessTimeIcon  from '@mui/icons-material/AccessTime';
+import GroupAddIcon    from '@mui/icons-material/GroupAdd';
 
-import AboutView from "./components/AboutView";
+import AboutView     from "./components/AboutView";
 import StandingsView from "./components/StandingsView";
-import EventsView from "./components/EventsView";
-import StreamsView from "./components/StreamsView";
-import FormsView from "./components/FormsView";
-import ContactView from "./components/ContactView";
+import EventsView    from "./components/EventsView";
+import StreamsView   from "./components/StreamsView";
+import FormsView     from "./components/FormsView";
+import ContactView   from "./components/ContactView";
 import PrevYearsView from "./components/PrevYearsView";
-import AddTeamView from './components/AddTeamView';
+import AddTeamView   from './components/AddTeamView';
 
 
 const REST_API_KEY = "XpDK1Zm5r0cX3bZKiuPrsqdTbzXOBSin3YKcb5hR";

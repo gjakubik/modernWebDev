@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React       from "react";
+import CssBaseline from '@mui/material/CssBaseline';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     useHistory
   } from "react-router-dom";
-  import CssBaseline from '@mui/material/CssBaseline';
 
-import NavBar from "./components/NavBar";
+import NavBar   from "./components/NavBar";
 import HomeView from "./components/HomeView";
 
 import { PRIVATE_PAGES, PUBLIC_PAGES } from "./constants";
