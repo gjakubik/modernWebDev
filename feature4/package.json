@@ -25,6 +25,7 @@
     "@fontsource/audiowide": "^4.5.0",
     "parse": "^3.3.1",
     "preact": "^10.1.0",
+    "preact-material-components": "^1.6.1",
     "preact-render-to-string": "^5.1.2",
     "preact-router": "^3.2.1"
   }
