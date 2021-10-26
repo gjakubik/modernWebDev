@@ -1,6 +1,3 @@
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
-
 
 export default function ContactForm({label1, label2, label3}) {
 	return (
