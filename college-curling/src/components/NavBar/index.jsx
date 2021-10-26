@@ -13,13 +13,7 @@ import '@fontsource/audiowide';
 
 import SideDrawer from './SideDrawer';
 
-import { PAGES } from '../../constants';
-
 export default function NavBar() {
-
-	// Pages is used to define routing and page names
-	// This will make the navbar easy to update
-	console.log(PAGES);
 
 	const [showNav, setShowNav] = useState(false);
 	const history = useHistory();

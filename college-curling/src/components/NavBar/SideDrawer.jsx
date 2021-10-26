@@ -11,7 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
-import { PAGES } from '../../constants';
+import { PUBLIC_PAGES, PRIVATE_PAGES } from '../../constants';
 
 export default function SideDrawer({showNav, setShowNav}) {
 
@@ -28,7 +28,7 @@ export default function SideDrawer({showNav, setShowNav}) {
 					onKeyDown={() => setShowNav(false)}
 				>
 					<List>
-						{PAGES.map((page) => (
+						{PUBLIC_PAGES.map((page) => (
 							<ListItem button component={Link} to={page.link} key={page.name}>
 								<ListItemIcon>
 								{page.icon}
@@ -40,12 +40,12 @@ export default function SideDrawer({showNav, setShowNav}) {
 					<Divider />
 					<List>
 						{/* This list can be converted to one only available to admins*/}
-						{['All mail', 'Trash', 'Spam'].map((text, index) => (
-						<ListItem button key={text}>
+						{PRIVATE_PAGES.map((page, index) => (
+						<ListItem button component={Link} to={page.link} key={page.id}>
 							<ListItemIcon>
-							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+							{page.icon}
 							</ListItemIcon>
-							<ListItemText primary={text} />
+							<ListItemText primary={page.name} />
 						</ListItem>
 						))}
 					</List>

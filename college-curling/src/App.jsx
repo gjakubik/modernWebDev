@@ -9,7 +9,7 @@ import {
 import NavBar from "./components/NavBar";
 import HomeView from "./components/HomeView";
 
-import { PAGES } from "./constants";
+import { PRIVATE_PAGES, PUBLIC_PAGES } from "./constants";
 
 const App = () => {
 
@@ -18,8 +18,8 @@ const App = () => {
             <NavBar />
             <Switch>
                 <Route exact path="/" component={HomeView} />
-                {PAGES.map((page) => (<Route path={page.link}>{page.component}</Route>))}
-                
+                {PUBLIC_PAGES.map((page) => (<Route path={page.link}>{page.component}</Route>))}
+                {PRIVATE_PAGES.map((page) => (<Route path={page.link}>{page.component}</Route>))}
             </Switch>
         </Router>
     );

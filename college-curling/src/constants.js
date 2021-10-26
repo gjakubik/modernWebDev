@@ -8,6 +8,7 @@ import ComputerIcon from '@mui/icons-material/Computer';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
 
 import AboutView from "./components/AboutView";
 import StandingsView from "./components/StandingsView";
@@ -16,6 +17,7 @@ import StreamsView from "./components/StreamsView";
 import FormsView from "./components/FormsView";
 import ContactView from "./components/ContactView";
 import PrevYearsView from "./components/PrevYearsView";
+import AddTeamView from './components/AddTeamView';
 
 
 const REST_API_KEY = "XpDK1Zm5r0cX3bZKiuPrsqdTbzXOBSin3YKcb5hR";
@@ -27,13 +29,13 @@ const PARSE_JS_KEY   = 'C9Y9dYHQnKqWDH53UybE1JLl0zM4JS2NsqEUrjIE';
 const PARSE_HOST_URL = 'https://parseapi.back4app.com/';
 
 // List of objects used to create nav links to correct routes
-const PAGES = [
+const PUBLIC_PAGES = [
     {
         id: 'about',
         name: 'About',
         link: '/about',
         icon: <InfoIcon />,
-        component: <AboutView />
+        component: AboutView
     },
     {
         id: 'standings',
@@ -77,6 +79,16 @@ const PAGES = [
         icon: <AccessTimeIcon />,
         component: PrevYearsView
     },
+];
+
+const PRIVATE_PAGES = [
+  {
+    id: 'addTeam',
+    name: 'Add Team',
+    link: '/addTeam',
+    icon: <GroupAddIcon />,
+    component: AddTeamView
+  },
 ];
 
 const SCHOOLS = {
@@ -154,4 +166,4 @@ const SCHOOLS = {
     ]
 };
 
-export { PAGES, PARSE_APP_ID, PARSE_HOST_URL, PARSE_JS_KEY, BASE_URL, REST_API_KEY, SCHOOLS};
+export { PUBLIC_PAGES, PRIVATE_PAGES, PARSE_APP_ID, PARSE_HOST_URL, PARSE_JS_KEY, BASE_URL, REST_API_KEY, SCHOOLS};
