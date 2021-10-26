@@ -5,6 +5,7 @@ import {
     Route,
     useHistory
   } from "react-router-dom";
+  import CssBaseline from '@mui/material/CssBaseline';
 
 import NavBar from "./components/NavBar";
 import HomeView from "./components/HomeView";
@@ -15,6 +16,7 @@ const App = () => {
 
     return (
         <Router>
+            <CssBaseline />
             <NavBar />
             <Switch>
                 <Route exact path="/" component={HomeView} />
