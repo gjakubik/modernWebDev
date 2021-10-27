@@ -11,7 +11,7 @@ export const getSchools = async () => {
         for (const object of results) {
             // Access the Parse Object attributes using the .GET method
             finalObj.push({
-                objectId: object.get('objectId'),
+                objectId: object.id,
                 schoolName: object.get('schoolName'),
                 city: object.get('city'),
                 state: object.get('state')
