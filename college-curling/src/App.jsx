@@ -1,6 +1,8 @@
-import React       from "react";
-import CssBaseline from '@mui/material/CssBaseline';
-import Parse       from 'parse';
+import React                from "react";
+import CssBaseline          from '@mui/material/CssBaseline';
+import Parse                from 'parse';
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import AdapterDateFns       from '@mui/lab/AdapterDateFns';
 import {
     BrowserRouter as Router,
     Switch,
@@ -23,15 +25,17 @@ const App = () => {
 	Parse.serverURL = PARSE_HOST_URL;
 
     return (
-        <Router>
-            <CssBaseline />
-            <NavBar />
-            <Switch>
-                <Route exact path="/" component={HomeView} />
-                {PUBLIC_PAGES.map((page) => (<Route path={page.link}>{page.component}</Route>))}
-                {PRIVATE_PAGES.map((page) => (<Route path={page.link}>{page.component}</Route>))}
-            </Switch>
-        </Router>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <Router>
+                <CssBaseline />
+                <NavBar />
+                <Switch>
+                    <Route exact path="/" component={HomeView} />
+                    {PUBLIC_PAGES.map((page) => (<Route path={page.link}>{page.component}</Route>))}
+                    {PRIVATE_PAGES.map((page) => (<Route path={page.link}>{page.component}</Route>))}
+                </Switch>
+            </Router>
+        </LocalizationProvider>
     );
 }
 
