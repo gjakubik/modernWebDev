@@ -1,37 +1,41 @@
-import React, { useState } from "react";
+import React                from "react";
+import CssBaseline          from '@mui/material/CssBaseline';
+import Parse                from 'parse';
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import AdapterDateFns       from '@mui/lab/AdapterDateFns';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    useHistory
+    Route
   } from "react-router-dom";
 
-import NavBar from "./components/NavBar";
+import NavBar   from "./components/NavBar";
 import HomeView from "./components/HomeView";
 
-import { PAGES } from "./constants";
+import { 
+    PRIVATE_PAGES, 
+    PUBLIC_PAGES, 
+    PARSE_APP_ID, 
+    PARSE_JS_KEY, 
+    PARSE_HOST_URL } from "./constants";
 
 const App = () => {
 
-    const [showNav, setShowNav] = useState(false);
-	const history = useHistory();
-
-    const changeView = (link) => {
-		console.log("pushing: ", link);
-        if (link) {
-            history.push(link);
-        }
-	};
+    Parse.initialize(PARSE_APP_ID, PARSE_JS_KEY);
+	Parse.serverURL = PARSE_HOST_URL;
 
     return (
-        <Router>
-            <NavBar showNav={showNav} setShowNav={setShowNav} changeView={changeView}/>
-            <Switch>
-                <Route exact path="/" component={HomeView} />
-                {PAGES.map((page) => (<Route path={page.link}>{page.component}</Route>))}
-                
-            </Switch>
-        </Router>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <Router>
+                <CssBaseline />
+                <NavBar />
+                <Switch>
+                    <Route exact path="/" component={HomeView} />
+                    {PUBLIC_PAGES.map((page) => (<Route path={page.link}>{page.component}</Route>))}
+                    {PRIVATE_PAGES.map((page) => (<Route path={page.link}>{page.component}</Route>))}
+                </Switch>
+            </Router>
+        </LocalizationProvider>
     );
 }
 

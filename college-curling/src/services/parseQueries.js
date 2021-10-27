@@ -5,29 +5,37 @@ export const getSchools = async () => {
     const query = new Parse.Query(School);
     
     try {
-    const results = await query.find();
-    for (const object of results) {
-        // Access the Parse Object attributes using the .GET method
-        const schoolName = object.get('schoolName')
-        const city = object.get('city')
-        const state = object.get('state')
-        console.log(schoolName);
-        console.log(city);
-        console.log(state);
-    }
+        const results = await query.find();
+        console.log(results);
+        const finalObj = {};
+        for (const object of results) {
+            // Access the Parse Object attributes using the .GET method
+            finalObj[object.get('schoolName')] = {
+                objectId: object.id,
+                schoolName: object.get('schoolName'),
+                city: object.get('city'),
+                state: object.get('state')
+            }
+        }
+        console.log(finalObj);
+        return finalObj
     } catch (error) {
-    console.error('Error while fetching School', error);
+        console.error('Error while fetching School', error);
+    return []
     }
 };
 
-export const createTeam = async (year, rank, schoolID) => {
+export const createTeam = async (year, rank, schoolID, wins, losses, draws) => {
     const myNewObject = new Parse.Object('Team');
+    let schoolQuery = new Parse.Query("School");
+    let schoolObj = await schoolQuery.get(schoolID);
+
     myNewObject.set('rank', rank);
     myNewObject.set('year', year);
-    myNewObject.set('schoolID', new Parse.Query("School").equalTo('objectID', schoolID));
-    myNewObject.set('wins', 0);
-    myNewObject.set('losses', 0);
-    myNewObject.set('ties', 0);
+    myNewObject.set('schoolID', schoolObj.toPointer());
+    myNewObject.set('wins', parseInt(wins));
+    myNewObject.set('losses', parseInt(losses));
+    myNewObject.set('ties', parseInt(draws));
     try {
     const result = await myNewObject.save();
     // Access the Parse Object attributes using the .GET method
@@ -48,14 +56,5 @@ export const createPlayer = async (firstName, lastName, teamID) => {
         console.log('Player created', result);
     } catch (error) {
         console.error('Error while creating Player: ', error);
-    }
-};
-
-export const createTeam = async () => {
-    try {
-
-
-    } catch (error) {
-        console.log(error)
     }
 };

@@ -2,21 +2,22 @@
 * File containing constant values used throughout the application
 */
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import InfoIcon from '@mui/icons-material/Info';
-import EventIcon from '@mui/icons-material/Event';
-import ComputerIcon from '@mui/icons-material/Computer';
-import ListAltIcon from '@mui/icons-material/ListAlt';
+import InfoIcon        from '@mui/icons-material/Info';
+import EventIcon       from '@mui/icons-material/Event';
+import ComputerIcon    from '@mui/icons-material/Computer';
+import ListAltIcon     from '@mui/icons-material/ListAlt';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import AccessTimeIcon  from '@mui/icons-material/AccessTime';
+import GroupAddIcon    from '@mui/icons-material/GroupAdd';
 
-import HomeView from "./components/HomeView";
-import AboutView from "./components/AboutView";
+import AboutView     from "./components/AboutView";
 import StandingsView from "./components/StandingsView";
-import EventsView from "./components/EventsView";
-import StreamsView from "./components/StreamsView";
-import FormsView from "./components/FormsView";
-import ContactView from "./components/ContactView";
+import EventsView    from "./components/EventsView";
+import StreamsView   from "./components/StreamsView";
+import FormsView     from "./components/FormsView";
+import ContactView   from "./components/ContactView";
 import PrevYearsView from "./components/PrevYearsView";
+import AddTeamView   from './components/AddTeamView';
 
 
 const REST_API_KEY = "XpDK1Zm5r0cX3bZKiuPrsqdTbzXOBSin3YKcb5hR";
@@ -28,7 +29,7 @@ const PARSE_JS_KEY   = 'C9Y9dYHQnKqWDH53UybE1JLl0zM4JS2NsqEUrjIE';
 const PARSE_HOST_URL = 'https://parseapi.back4app.com/';
 
 // List of objects used to create nav links to correct routes
-const PAGES = [
+const PUBLIC_PAGES = [
     {
         id: 'about',
         name: 'About',
@@ -41,43 +42,53 @@ const PAGES = [
         name: 'Standings',
         link: '/standings',
         icon: <EmojiEventsIcon />,
-        component: StandingsView
+        component: <StandingsView />
     },
     {
         id: 'events',
         name: 'Events',
         link: '/events',
         icon: <EventIcon />,
-        component: EventsView
+        component: <EventsView />
     },
     {
         id: 'streams',
         name: 'Streams',
         link: '/streams',
         icon: <ComputerIcon />,
-        component: StreamsView
+        component: <StreamsView />
     },
     {
         id: 'forms',
         name: 'Forms',
         link: '/forms',
         icon: <ListAltIcon />,
-        component: FormsView
+        component: <FormsView />
     },
     {
         id: 'contact',
         name: 'Contact',
         link: '/contact',
         icon: <ContactMailIcon />,
-        component: ContactView
+        component: <ContactView />
     },
     {
         id: 'prevYears',
         name: 'Previous Years',
         link: '/prevYears',
         icon: <AccessTimeIcon />,
-        component: PrevYearsView
+        component: <PrevYearsView />
     },
+];
+
+const PRIVATE_PAGES = [
+  {
+    id: 'addTeam',
+    name: 'Add Team',
+    link: '/addTeam',
+    icon: <GroupAddIcon />,
+    component: <AddTeamView />
+  },
 ];
 
 const SCHOOLS = {
@@ -155,4 +166,4 @@ const SCHOOLS = {
     ]
 };
 
-export { PAGES, PARSE_APP_ID, PARSE_HOST_URL, PARSE_JS_KEY, BASE_URL, REST_API_KEY, SCHOOLS};
+export { PUBLIC_PAGES, PRIVATE_PAGES, PARSE_APP_ID, PARSE_HOST_URL, PARSE_JS_KEY, BASE_URL, REST_API_KEY, SCHOOLS};
