@@ -7,15 +7,15 @@ export const getSchools = async () => {
     try {
         const results = await query.find();
         console.log(results);
-        const finalObj = [];
+        const finalObj = {};
         for (const object of results) {
             // Access the Parse Object attributes using the .GET method
-            finalObj.push({
+            finalObj[object.get('schoolName')] = {
                 objectId: object.id,
                 schoolName: object.get('schoolName'),
                 city: object.get('city'),
                 state: object.get('state')
-            })
+            }
         }
         console.log(finalObj);
         return finalObj
@@ -25,14 +25,17 @@ export const getSchools = async () => {
     }
 };
 
-export const createTeam = async (year, rank, schoolID) => {
+export const createTeam = async (year, rank, schoolID, wins, losses, draws) => {
     const myNewObject = new Parse.Object('Team');
+    let schoolQuery = new Parse.Query("School");
+    let schoolObj = await schoolQuery.get(schoolID);
+
     myNewObject.set('rank', rank);
     myNewObject.set('year', year);
-    myNewObject.set('schoolID', new Parse.Query("School").equalTo('objectID', schoolID));
-    myNewObject.set('wins', 0);
-    myNewObject.set('losses', 0);
-    myNewObject.set('ties', 0);
+    myNewObject.set('schoolID', schoolObj.toPointer());
+    myNewObject.set('wins', parseInt(wins));
+    myNewObject.set('losses', parseInt(losses));
+    myNewObject.set('ties', parseInt(draws));
     try {
     const result = await myNewObject.save();
     // Access the Parse Object attributes using the .GET method
