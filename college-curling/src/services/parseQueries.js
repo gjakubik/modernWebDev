@@ -5,18 +5,23 @@ export const getSchools = async () => {
     const query = new Parse.Query(School);
     
     try {
-    const results = await query.find();
-    for (const object of results) {
-        // Access the Parse Object attributes using the .GET method
-        const schoolName = object.get('schoolName')
-        const city = object.get('city')
-        const state = object.get('state')
-        console.log(schoolName);
-        console.log(city);
-        console.log(state);
-    }
+        const results = await query.find();
+        console.log(results);
+        const finalObj = [];
+        for (const object of results) {
+            // Access the Parse Object attributes using the .GET method
+            finalObj.push({
+                objectId: object.get('objectId'),
+                schoolName: object.get('schoolName'),
+                city: object.get('city'),
+                state: object.get('state')
+            })
+        }
+        console.log(finalObj);
+        return finalObj
     } catch (error) {
-    console.error('Error while fetching School', error);
+        console.error('Error while fetching School', error);
+    return []
     }
 };
 
@@ -48,14 +53,5 @@ export const createPlayer = async (firstName, lastName, teamID) => {
         console.log('Player created', result);
     } catch (error) {
         console.error('Error while creating Player: ', error);
-    }
-};
-
-export const createTeam = async () => {
-    try {
-
-
-    } catch (error) {
-        console.log(error)
     }
 };

@@ -1,18 +1,26 @@
 import React       from "react";
 import CssBaseline from '@mui/material/CssBaseline';
+import Parse       from 'parse';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    useHistory
+    Route
   } from "react-router-dom";
 
 import NavBar   from "./components/NavBar";
 import HomeView from "./components/HomeView";
 
-import { PRIVATE_PAGES, PUBLIC_PAGES } from "./constants";
+import { 
+    PRIVATE_PAGES, 
+    PUBLIC_PAGES, 
+    PARSE_APP_ID, 
+    PARSE_JS_KEY, 
+    PARSE_HOST_URL } from "./constants";
 
 const App = () => {
+
+    Parse.initialize(PARSE_APP_ID, PARSE_JS_KEY);
+	Parse.serverURL = PARSE_HOST_URL;
 
     return (
         <Router>
