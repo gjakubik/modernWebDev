@@ -2,12 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import Button             from '@mui/material/Button';
 import TextField          from '@mui/material/TextField';
-import MenuItem           from '@mui/material/MenuItem'
 import Box                from '@mui/material/Box';
 import Typography         from '@mui/material/Typography';
 import Container          from '@mui/material/Container';
-import DatePicker         from '@mui/lab/DatePicker';
-import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 
 import { createSchool } from '../../services/parseQueries';
 

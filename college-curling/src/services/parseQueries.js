@@ -1,5 +1,37 @@
 import Parse from 'parse';
 
+
+export const getTeams = async () => {
+    const Team = Parse.Object.extend('Team');
+    const query = new Parse.Query(Team);
+
+    try {
+        const results = await query.find();
+        // Use dict here so that ID can be easily accessed
+        const finalObj = {};
+        for (const object of results) {
+            const schoolQuery = new Parse.Query(Parse.Object.extend('School'));
+            const school = await schoolQuery.get(object.get("schoolID").id);
+            finalObj[object.id] = {
+                objectId: object.id,
+                schoolId: school.id,
+                schoolName: school.get("schoolName"),
+                schoolCity: school.get("city"),
+                schoolState: school.get("state"),
+                rank: object.get("rank"),
+                wins: object.get("wins"),
+                losses: object.get("losses"),
+                ties: object.get("ties")
+            }
+        }
+        console.log(finalObj);
+        return finalObj;
+    } catch (error) {
+        console.error('Error while fetching Team', error);
+        return {}
+    }
+};
+
 export const getSchools = async () => {
     const School = Parse.Object.extend('School');
     const query = new Parse.Query(School);
@@ -21,7 +53,7 @@ export const getSchools = async () => {
         return finalObj
     } catch (error) {
         console.error('Error while fetching School', error);
-    return []
+        return {}
     }
 };
 
