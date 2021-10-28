@@ -18,6 +18,7 @@ import FormsView     from "./components/FormsView";
 import ContactView   from "./components/ContactView";
 import PrevYearsView from "./components/PrevYearsView";
 import AddTeamView   from './components/AddTeamView';
+import AddSchoolView   from './components/AddSchoolView';
 
 
 const REST_API_KEY = "XpDK1Zm5r0cX3bZKiuPrsqdTbzXOBSin3YKcb5hR";
@@ -88,6 +89,13 @@ const PRIVATE_PAGES = [
     link: '/addTeam',
     icon: <GroupAddIcon />,
     component: <AddTeamView />
+  },  
+  {
+    id: 'addSchool',
+    name: 'Add School',
+    link: '/addSchool',
+    icon: <GroupAddIcon />,
+    component: <AddSchoolView />
   },
 ];
 
