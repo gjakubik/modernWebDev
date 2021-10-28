@@ -10,8 +10,6 @@ import TableRow from '@mui/material/TableRow';
 import Title from '../Common/Title';
 
 import { getTeams } from '../../services/parseQueries';
-import StandingsList from "./StandingList";
-
 
 export default function StandingsView() {
 
