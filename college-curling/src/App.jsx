@@ -31,8 +31,8 @@ const App = () => {
                 <NavBar />
                 <Switch>
                     <Route exact path="/" component={HomeView} />
-                    {PUBLIC_PAGES.map((page) => (<Route path={page.link}>{page.component}</Route>))}
-                    {PRIVATE_PAGES.map((page) => (<Route path={page.link}>{page.component}</Route>))}
+                    {PUBLIC_PAGES.map((page) => (<Route key={page.name} path={page.link}>{page.component}</Route>))}
+                    {PRIVATE_PAGES.map((page) => (<Route key={page.name} path={page.link}>{page.component}</Route>))}
                 </Switch>
             </Router>
         </LocalizationProvider>
