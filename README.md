@@ -1,6 +1,7 @@
 # Modern Web Development
 #### Repository to track assignments for my Modern Web Development Class
 
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/gjakubik/modernWebDev?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/gjakubik/modernWebDev?style=flat-square)
 ### Developed by:
 #### Gavin Jakubik
 #### Quinn Bardwell
