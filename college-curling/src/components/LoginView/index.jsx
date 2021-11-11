@@ -24,9 +24,9 @@ export default function LoginView(){
     const [loginFail, setLoginFail] = useState(false);
 
     // Set user function for user atom
-    const setUser                   = useSetRecoilState(loginUser);
+    const setUser  = useSetRecoilState(loginUser);
 
-    const history                   = useHistory();
+    const history = useHistory();
 
 
     const handleSubmit = () => {
