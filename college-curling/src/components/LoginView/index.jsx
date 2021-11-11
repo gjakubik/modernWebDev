@@ -27,7 +27,6 @@ export default function LoginView(){
     const setUser                   = useSetRecoilState(loginUser);
 
     const history                   = useHistory();
-    const loading = false;
 
 
     const handleSubmit = () => {
@@ -37,7 +36,8 @@ export default function LoginView(){
                 if (resp) {
                     setLoginFail(false);
                     setUser(resp);
-                    history.push("/");
+                    // Go to previous route user was trying to access
+                    history.goBack();
                 } else {
                     // will render alert component
                     setLoginFail(true);
@@ -55,8 +55,7 @@ export default function LoginView(){
             noValidate
             autoComplete="off"
         >
-            {loading ? <Typography>Loading</Typography> :
-                <Container component="main" maxWidth="sm">
+            <Container component="main" maxWidth="sm">
                 <Stack 
                     sx={{
                         marginTop: '40px',
@@ -122,11 +121,10 @@ export default function LoginView(){
                         <Typography>Not already registered? <Link to="/register">Sign up</Link></Typography>
                     </Box>
                     <Box sx={{marginTop: '20px'}}>
-                        <Typography>Forgot your password? <Link>Sign up</Link></Typography>
+                        <Typography>Forgot your password? <Link to="/reset">Reset password</Link></Typography>
                     </Box>
                 </Stack>
             </Container>
-            }
         </Box>
     );
 };

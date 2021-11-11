@@ -9,10 +9,12 @@ import {
     Switch,
     Route }                 from "react-router-dom";
 
-import NavBar       from "./components/NavBar";
-import HomeView     from "./components/HomeView";
-import LoginView    from "./components/LoginView";
-import RegisterView from "./components/RegisterView";
+import NavBar         from "./components/NavBar";
+import HomeView       from "./components/HomeView";
+import LoginView      from "./components/LoginView";
+import RegisterView   from "./components/RegisterView";
+import ResetView      from "./components/ResetView";
+import ProtectedRoute from "./components/Common/ProtectedRoute";
 
 import { 
     PRIVATE_PAGES, 
@@ -36,8 +38,9 @@ const App = () => {
                         <Route exact path="/" component={HomeView} />
                         <Route path="/login" component={LoginView} />
                         <Route path="/register" component={RegisterView} />
+                        <Route path="/reset" component={ResetView} />
                         {PUBLIC_PAGES.map((page) => (<Route key={page.name} path={page.link}>{page.component}</Route>))}
-                        {PRIVATE_PAGES.map((page) => (<Route key={page.name} path={page.link}>{page.component}</Route>))}
+                        {PRIVATE_PAGES.map((page) => (<ProtectedRoute key={page.name} path={page.link} component={page.component} />))}
                     </Switch>
                 </Router>
             </LocalizationProvider>

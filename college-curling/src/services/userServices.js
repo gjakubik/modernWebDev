@@ -38,3 +38,12 @@ export const logOut = async () => {
         return e;
     }
 }
+
+export const resetPassword = async (email) => {
+    try {
+        await Parse.User.requestPasswordReset(email);
+        return "success"
+    } catch (e) {
+        return e;
+    }
+}
