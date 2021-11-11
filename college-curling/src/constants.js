@@ -36,49 +36,49 @@ const PUBLIC_PAGES = [
         name: 'About',
         link: '/about',
         icon: <InfoIcon />,
-        component: <AboutView />
+        component: AboutView
     },
     {
         id: 'standings',
         name: 'Standings',
         link: '/standings',
         icon: <EmojiEventsIcon />,
-        component: <StandingsView />
+        component: StandingsView
     },
     {
         id: 'events',
         name: 'Events',
         link: '/events',
         icon: <EventIcon />,
-        component: <EventsView />
+        component: EventsView
     },
     {
         id: 'streams',
         name: 'Streams',
         link: '/streams',
         icon: <ComputerIcon />,
-        component: <StreamsView />
+        component: StreamsView
     },
     {
         id: 'forms',
         name: 'Forms',
         link: '/forms',
         icon: <ListAltIcon />,
-        component: <FormsView />
+        component: FormsView
     },
     {
         id: 'contact',
         name: 'Contact',
         link: '/contact',
         icon: <ContactMailIcon />,
-        component: <ContactView />
+        component: ContactView
     },
     {
         id: 'prevYears',
         name: 'Previous Years',
         link: '/prevYears',
         icon: <AccessTimeIcon />,
-        component: <PrevYearsView />
+        component: PrevYearsView
     },
 ];
 
@@ -88,14 +88,14 @@ const PRIVATE_PAGES = [
     name: 'Add Team',
     link: '/addTeam',
     icon: <GroupAddIcon />,
-    component: <AddTeamView />
+    component: AddTeamView
   },  
   {
     id: 'addSchool',
     name: 'Add School',
     link: '/addSchool',
     icon: <GroupAddIcon />,
-    component: <AddSchoolView />
+    component: AddSchoolView
   },
 ];
 

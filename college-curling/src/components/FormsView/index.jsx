@@ -1,8 +1,10 @@
+import FormList from "../FormList";
 
 export default function FormsView() {
 	return (
 		<div>
-			<h1>Forms View</h1>
+			<h2>USA College Curling About Us</h2>
+			<FormList />
 		</div>
 	);
 }
