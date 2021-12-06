@@ -24,6 +24,8 @@ export const getTeams = async () => {
     const Team = Parse.Object.extend('Team');
     const query = new Parse.Query(Team);
 
+    query.ascending('rank');
+
     try {
         const results = await query.find();
         // Use dict here so that ID can be easily accessed

@@ -32,8 +32,14 @@ export const getPlayers = async (teamId) => {
         var playerList = []
         for (const obj of results) {
             playerList.push({
+                "playerId": obj.id,
                 "firstName": obj.get('firstName'),
                 "lastName": obj.get('lastName'),
+                "careerWins": obj.get('careerWins'),
+                "careerLosses": obj.get('careerLosses'),
+                "careerTies": obj.get('careerTies'),
+                "class": obj.get('class'),
+                "position": obj.get('position'),
             });
         }
 

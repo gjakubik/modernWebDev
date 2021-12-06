@@ -1,51 +1,35 @@
 import React from "react";
 
-import Box       from '@mui/material/Box';
-import Table     from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow  from '@mui/material/TableRow';
+import Box         from '@mui/material/Box';
+import Stack       from '@mui/material/Stack';
+import Card        from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button      from '@mui/material/Button';
+import Typography  from '@mui/material/Typography';
+import Title       from "../Common/Title";
 
-export default function PlayerList() {
+export default function PlayerList({ players }) {
 
     return (
         <React.Fragment>
-            <Table size="small">
-				<TableHead>
-				<TableRow>
-					<TableCell>Rank</TableCell>
-					<TableCell>School Name</TableCell>
-					<TableCell>Wins</TableCell>
-					<TableCell>Draws</TableCell>
-					<TableCell>Losses</TableCell>
-				</TableRow>
-				</TableHead>
-				<TableBody>
-				{Object.values(teams).map((row) => (
-					<TableRow 
-						key={row.objectId}
-						id={row.objectId} 
-						onClick={(e) => {
-							console.log(e.target);
-							goTeamDetail(row.objectId);
-						}} 
-						sx={{
-							"&:hover": {
-								cursor: "pointer",
-								backgroundColor: '#cfe7ff',
-							}
-						}}
-					>
-						<TableCell>{row.rank}</TableCell>
-						<TableCell>{row.schoolName}</TableCell>
-						<TableCell>{row.wins}</TableCell>
-						<TableCell>{row.ties}</TableCell>
-						<TableCell>{row.losses}</TableCell>
-					</TableRow>
-				))}
-				</TableBody>
-			</Table>
+                {players === ([] || undefined) ? <Title>Error With Player List</Title>
+                :
+                <Stack>
+                    {players.map((player) => {
+                        <Card sx={{ minWidth: 275 }}>
+                            <CardContent>
+                                <Typography variant="h5" component="div">
+                                    {player.firstName} {player.lastName}
+                                </Typography>
+                                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                                    {player.class}
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    })}
+                </Stack>
+                }
         </React.Fragment>
     )
 }
