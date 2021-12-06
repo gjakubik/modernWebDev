@@ -25,8 +25,8 @@ export const getPlayers = async (teamId) => {
         const Player = Parse.Object.extend('Player');
         const playerQuery = new Parse.Query(Player);
 
-        query.include('Team');
-        query.equalTo('Team', teamObj);
+        playerQuery.include('Team');
+        playerQuery.equalTo('Team', teamObj);
 
         const results = await playerQuery.find();
         var playerList = []
