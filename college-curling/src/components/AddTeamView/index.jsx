@@ -9,7 +9,8 @@ import Container          from '@mui/material/Container';
 import DatePicker         from '@mui/lab/DatePicker';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 
-import { getSchools, createTeam } from '../../services/parseQueries';
+import { getSchools } from '../../services/parse/schoolQueries';
+import { createTeam } from '../../services/parse/teamQueries';
 
 export default function AddTeamView(){
 
