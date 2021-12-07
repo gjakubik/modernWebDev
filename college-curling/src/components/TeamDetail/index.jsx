@@ -18,21 +18,17 @@ export default function TeamDetail() {
     // Get players and past performance here
     useEffect(async () => {
         console.log(team);
-        if (team === ({} || null)) {
-            console.log(team); 
-            return; 
-        }
+        if ((team === null) || (team === {})) { return }
 
         const newPlayers = await getPlayers(team.objectId);
-
+        console.log(newPlayers);
         setPlayers(newPlayers);
     }, [team])
 
     return (
         <React.Fragment>
-            <Typography>Team Detail</Typography>
-            <Typography>{team ? team.schoolName : "No team selected"}</Typography>
-            {players === (null || {}) ?  <Title>Error getting players</Title> : <PlayerList players={players} />}
+            <Title>{team ? team.schoolName : "No team selected"}</Title>
+            {((players === null) || (players === {})) ?  <Title>Error getting players</Title> : <PlayerList players={players} />}
         </React.Fragment>
     )
 }

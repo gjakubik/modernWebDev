@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Box         from '@mui/material/Box';
 import Stack       from '@mui/material/Stack';
@@ -11,13 +11,20 @@ import Title       from "../Common/Title";
 
 export default function PlayerList({ players }) {
 
+    useEffect(() => {
+        console.log(players);
+
+    }, [players]);
+
     return (
         <React.Fragment>
-                {players === ([] || undefined) ? <Title>Error With Player List</Title>
+                {((players === []) || (players === undefined)) ? <Title>Error With Player List</Title>
                 :
-                <Stack>
+                <Stack spacing={4}>
                     {players.map((player) => {
-                        <Card sx={{ minWidth: 275 }}>
+                        console.log(player);
+                        return (
+                        <Card sx={{ minWidth: 200, maxWidth: 225 }} key={player.objectId}>
                             <CardContent>
                                 <Typography variant="h5" component="div">
                                     {player.firstName} {player.lastName}
@@ -27,7 +34,7 @@ export default function PlayerList({ players }) {
                                 </Typography>
                             </CardContent>
                         </Card>
-                    })}
+                    )})}
                 </Stack>
                 }
         </React.Fragment>

@@ -25,12 +25,16 @@ export const getPlayers = async (teamId) => {
         const Player = Parse.Object.extend('Player');
         const playerQuery = new Parse.Query(Player);
 
-        playerQuery.include('Team');
-        playerQuery.equalTo('Team', teamObj);
+        playerQuery.include('teamID');
+        console.log(teamObj);
+        //playerQuery.notEqualTo('teamID', undefined);
+        playerQuery.equalTo('teamID', teamObj);
 
         const results = await playerQuery.find();
+        console.log(results);
         var playerList = []
         for (const obj of results) {
+            console.log(obj.get('teamID'));
             playerList.push({
                 "playerId": obj.id,
                 "firstName": obj.get('firstName'),

@@ -13,19 +13,20 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 import Title from '../Common/Title';
 
-import { teamInfo } from '../../atoms/teamInfo';
-import { getTeams } from '../../services/parse/teamQueries';
+import { teamInfo }       from '../../atoms/teamInfo';
+import { getTeamsByYear } from '../../services/parse/teamQueries';
 
 
 export default function StandingsView() {
 
 	const [teams, setTeams] = useState({});
+	const year = useState(new Date().getFullYear());
 	const setTeamInfo = useSetRecoilState(teamInfo);
 
 	const history = useHistory();
 
 	useEffect(() => {
-		getTeams().then((res) => {
+		getTeamsByYear(year).then((res) => {
 			console.log(res);
 			setTeams(res);
 		});

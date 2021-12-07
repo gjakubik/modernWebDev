@@ -20,11 +20,20 @@ export const createTeam = async (year, rank, schoolID, wins, losses, draws) => {
     }
 };
 
-export const getTeams = async () => {
+export const getTeamsBySchool = async (schoolId) => {
+
+};
+
+export const getTeamsByYear = async (year) => {
     const Team = Parse.Object.extend('Team');
     const query = new Parse.Query(Team);
 
     query.ascending('rank');
+    if (year !== 0) {
+        // year is list idk why
+        console.log(year[0]);
+        query.equalTo('year', year[0]);
+    }
 
     try {
         const results = await query.find();
