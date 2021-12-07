@@ -11,7 +11,7 @@ import Title from '../Common/Title';
 
 import { getEvents } from "../../services/parse/eventQueries.js";
 
-export default function EventsView() {
+export default function EventsList() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
