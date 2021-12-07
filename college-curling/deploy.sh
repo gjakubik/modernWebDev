@@ -8,10 +8,11 @@ echo "Generating site..."
 sudo npm run build
 
 echo "Removing old site..."
-sudo rm -rf /var/www/public
+sudo rm -rf /var/www/build
+
 #Copy to server root
 echo "Moving to server root.."
-sudo cp -r public /var/www/
+sudo cp -r build /var/www/
 
 #Restart apache server
 echo "Restarting server..."
