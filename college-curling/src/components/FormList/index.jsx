@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { getForm } from "../../services/parseQueries.js";
+import { getForm } from "../../services/parse/formQueries";
 
 const FormList = () => {
   const [formContent, setContent] = useState([]);
