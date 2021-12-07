@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 
 import Button             from '@mui/material/Button';
 import TextField          from '@mui/material/TextField';
 import Box                from '@mui/material/Box';
 import Typography         from '@mui/material/Typography';
 import Container          from '@mui/material/Container';
+import Alert              from '@mui/material/Alert';
+import AlertTitle         from '@mui/material/AlertTitle';
 
 import { createSchool } from '../../services/parse/schoolQueries';
+import { getUser } from '../../atoms/loginUser';
 
 export default function AddSchoolView(){
 
@@ -15,9 +19,19 @@ export default function AddSchoolView(){
     const [state, setState]           = useState();
     const loading = false;
 
+    const user                        = useRecoilValue(getUser);
+    // Allows for alert at bottom when login fails
+    const [updateFail, setUpdateFail] = useState(false);
 
     const handleSubmit = () => {
-        createSchool(schoolName, city, state);
+        if (user.get("role") == "admin"){
+            createSchool(schoolName, city, state);
+            setUpdateFail(false);
+        }
+        else {
+            console.log("Failed to update database because of insufficient role. \"" + user.get("role") + "\" role does not have permission!");
+            setUpdateFail(true);
+        }
     };
 
     return (
@@ -82,6 +96,18 @@ export default function AddSchoolView(){
                         Add School
                     </Button>
                 </Box>
+                {updateFail ? 
+                    <Alert severity="error">
+                        <AlertTitle>Update Failed</AlertTitle>
+                        Failed to update database because of insufficient role. You don't have permission!
+                    </Alert>
+                    :
+                    <Alert severity="success">
+                        <AlertTitle>Update Success</AlertTitle>
+                        Successfully updated database!
+                    </Alert>                
+                    }
+                
             </Container>
             }
         </Box>
