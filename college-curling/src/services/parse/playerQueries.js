@@ -4,7 +4,7 @@ export const createPlayer = async (firstName, lastName, teamID) => {
     const myNewObject = new Parse.Object('Player');
     myNewObject.set('firstName', firstName);
     myNewObject.set('lastName', lastName);
-    myNewObject.set('teamID', new Parse.Query("Team").equalTo('objectID', teamID));
+    myNewObject.set('teamID', new Parse.Query(new Parse.Object('Team')).get(teamID));
     try {
         const result = await myNewObject.save();
         // Access the Parse Object attributes using the .GET method

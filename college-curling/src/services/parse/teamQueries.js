@@ -20,6 +20,10 @@ export const createTeam = async (year, rank, schoolID, wins, losses, draws) => {
     }
 };
 
+export const getTeamsByCoach = async (userId) => {
+    
+}
+
 // returns simplified data, used for graphing
 export const getTeamsBySchool = async (schoolId) => {
     const School = Parse.Object.extend('School');
