@@ -33,7 +33,8 @@ export default function AddTeamView(){
 
     const user                        = useRecoilValue(getUser);
     // Allows for alert at bottom when login fails
-    const [updateFail, setUpdateFail] = useState(false);
+    const [updateFail, setUpdateFail]   = useState(false);
+    const [updateSuccess, setUpdateSucces] = useState(false);
 
     // Get the list of schools to display
     useEffect(() => {
@@ -49,10 +50,12 @@ export default function AddTeamView(){
            || user.get("role") == "organizer"){
             createTeam(year.getFullYear(), 1, school.objectId, wins, losses, draws);
             setUpdateFail(false);
+            setUpdateSucces(true);
         }
         else {
             console.log("Failed to update database because of insufficient role. \"" + user.get("role") + "\" role does not have permission!");
             setUpdateFail(true);
+            setUpdateSucces(false);
         }
     };
 
@@ -169,11 +172,16 @@ export default function AddTeamView(){
                         Failed to update database because of insufficient role. You don't have permission!
                     </Alert>
                     :
-                    <Alert severity="success">
-                        <AlertTitle>Update Success</AlertTitle>
-                        Successfully updated database!
-                    </Alert>                
-                    }
+                    <Box> </Box>           
+                    }                
+                    {updateSuccess ? 
+                        <Alert severity="success">
+                         <AlertTitle>Update Success</AlertTitle>
+                         Successfully updated database!
+                        </Alert>
+                        :
+                        <Box> </Box>                
+                        }
             </Container>
             }
         </Box>
