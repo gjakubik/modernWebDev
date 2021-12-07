@@ -5,7 +5,7 @@ echo "Updating dependencies..."
 sudo npm ci
 
 echo "Generating site..."
-sudo npm build
+sudo npm run build
 
 #Copy to server root
 echo "Moving to server root.."
