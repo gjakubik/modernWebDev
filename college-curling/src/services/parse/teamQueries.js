@@ -20,8 +20,40 @@ export const createTeam = async (year, rank, schoolID, wins, losses, draws) => {
     }
 };
 
+// returns simplified data, used for graphing
 export const getTeamsBySchool = async (schoolId) => {
+    const School = Parse.Object.extend('School');
+    const schoolQuery = new Parse.Query(School);
 
+    try {
+        const schoolObj = await schoolQuery.get(schoolId);
+
+        const Team = Parse.Object.extend('Team');
+        const teamQuery = new Parse.Query(Team);
+
+        // Set to get only for certain school, sorted ascending years
+        teamQuery.ascending('year');
+        teamQuery.equalTo("schoolID", schoolObj);
+
+        const res = await teamQuery.find();
+
+        var teams = []
+        for (const object of res) {
+            teams.push({
+                objectId: object.id,
+                year: object.get("year"),
+                rank: object.get("rank"),
+                wins: object.get("wins"),
+                losses: object.get("losses"),
+                ties: object.get("ties")
+            })
+        }
+
+        return teams;
+
+    } catch (err) {
+        console.log(err);
+    }
 };
 
 export const getTeamsByYear = async (year) => {
@@ -30,9 +62,8 @@ export const getTeamsByYear = async (year) => {
 
     query.ascending('rank');
     if (year !== 0) {
-        // year is list idk why
-        console.log(year[0]);
-        query.equalTo('year', year[0]);
+        console.log(year);
+        query.equalTo('year', year);
     }
 
     try {

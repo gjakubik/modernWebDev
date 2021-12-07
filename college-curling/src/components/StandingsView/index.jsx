@@ -20,7 +20,8 @@ import { getTeamsByYear } from '../../services/parse/teamQueries';
 export default function StandingsView() {
 
 	const [teams, setTeams] = useState({});
-	const year = useState(new Date().getFullYear());
+	const [year, setYear ]  = useState(new Date().getFullYear());
+
 	const setTeamInfo = useSetRecoilState(teamInfo);
 
 	const history = useHistory();
@@ -42,7 +43,7 @@ export default function StandingsView() {
 	return (
 		<React.Fragment>
 			
-			<Title>Rankings</Title>
+			<Title>{year} Rankings</Title>
 			{(teams === {}) ? <Title>Loading</Title> :
 				<Table size="medium">
 				<TableHead>
