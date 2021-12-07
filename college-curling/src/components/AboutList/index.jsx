@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { getAbout } from "../../services/parse/aboutQueries";
+import { getAbout } from "../../services/parseQueries.js";
 
 const AboutList = () => {
   const [aboutContent, setContent] = useState([]);

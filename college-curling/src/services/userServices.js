@@ -8,7 +8,6 @@ export const addUser = async (newUser) => {
     user.set("lastName", newUser.lastName);
     user.set("password", newUser.password);
     user.set("email", newUser.email);
-    user.set("role", newUser.role);
   
     console.log("User: ", user);
     return user

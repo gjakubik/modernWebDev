@@ -13,7 +13,6 @@ import NavBar         from "./components/NavBar";
 import HomeView       from "./components/HomeView";
 import LoginView      from "./components/LoginView";
 import RegisterView   from "./components/RegisterView";
-import TeamDetail     from "./components/TeamDetail";
 import ResetView      from "./components/ResetView";
 import ProtectedRoute from "./components/Common/ProtectedRoute";
 
@@ -23,7 +22,6 @@ import {
     PARSE_APP_ID, 
     PARSE_JS_KEY, 
     PARSE_HOST_URL } from "./constants";
-
 
 const App = () => {
 
@@ -41,7 +39,6 @@ const App = () => {
                         <Route path="/login" component={LoginView} />
                         <Route path="/register" component={RegisterView} />
                         <Route path="/reset" component={ResetView} />
-                        <Route path="/teamDetail" component={TeamDetail} />
                         {PUBLIC_PAGES.map((page) => (<Route key={page.name} path={page.link}>{page.component}</Route>))}
                         {PRIVATE_PAGES.map((page) => (<ProtectedRoute key={page.name} path={page.link} component={page.component} />))}
                     </Switch>

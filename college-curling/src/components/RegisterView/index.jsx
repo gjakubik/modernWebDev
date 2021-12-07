@@ -12,7 +12,6 @@ import AlertTitle         from '@mui/material/AlertTitle';
 
 import { addUser }  from '../../services/userServices';
 import { loginUser } from '../../atoms/loginUser';
-import { DEFAULT_ROLE }    from "../../constants.js"
 
 export default function RegisterView(){
 
@@ -20,8 +19,7 @@ export default function RegisterView(){
         firstName: "",
         lastName: "",
         email: "",
-        password: "",
-        role: DEFAULT_ROLE
+        password: ""
     });
 
     const [signupFail, setSignupFail] = useState(false);

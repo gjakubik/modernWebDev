@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
 
 import Button             from '@mui/material/Button';
 import TextField          from '@mui/material/TextField';
@@ -9,12 +8,8 @@ import Typography         from '@mui/material/Typography';
 import Container          from '@mui/material/Container';
 import DatePicker         from '@mui/lab/DatePicker';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
-import Alert              from '@mui/material/Alert';
-import AlertTitle         from '@mui/material/AlertTitle';
 
-import { getSchools } from '../../services/parse/schoolQueries';
-import { createTeam } from '../../services/parse/teamQueries';
-import { getUser } from '../../atoms/loginUser';
+import { getSchools, createTeam } from '../../services/parseQueries';
 
 export default function AddTeamView(){
 
@@ -31,11 +26,6 @@ export default function AddTeamView(){
     const [schoolDict, setSchoolDict] = useState({});
     const [loading, setLoading]       = useState(true);
 
-    const user                        = useRecoilValue(getUser);
-    // Allows for alert at bottom when login fails
-    const [updateFail, setUpdateFail]   = useState(false);
-    const [updateSuccess, setUpdateSucces] = useState(false);
-
     // Get the list of schools to display
     useEffect(() => {
         // it needs to be async for the request, so capture the promise with a .then
@@ -45,18 +35,7 @@ export default function AddTeamView(){
     }, [])
 
     const handleSubmit = () => {
-        if (user.get("role") == "player" 
-           || user.get("role") == "admin" 
-           || user.get("role") == "organizer"){
-            createTeam(year.getFullYear(), 1, school.objectId, wins, losses, draws);
-            setUpdateFail(false);
-            setUpdateSucces(true);
-        }
-        else {
-            console.log("Failed to update database because of insufficient role. \"" + user.get("role") + "\" role does not have permission!");
-            setUpdateFail(true);
-            setUpdateSucces(false);
-        }
+        createTeam(year.getFullYear(), 1, school.objectId, wins, losses, draws);
     };
 
     return (
@@ -166,22 +145,6 @@ export default function AddTeamView(){
                         Add Team
                     </Button>
                 </Box>
-                {updateFail ? 
-                    <Alert severity="error">
-                        <AlertTitle>Update Failed</AlertTitle>
-                        Failed to update database because of insufficient role. You don't have permission!
-                    </Alert>
-                    :
-                    <Box> </Box>           
-                    }                
-                    {updateSuccess ? 
-                        <Alert severity="success">
-                         <AlertTitle>Update Success</AlertTitle>
-                         Successfully updated database!
-                        </Alert>
-                        :
-                        <Box> </Box>                
-                        }
             </Container>
             }
         </Box>

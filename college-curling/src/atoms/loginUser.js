@@ -18,11 +18,3 @@ export const isLoggedIn = selector({
     key: 'isLoggedIn',
     get: ({ get }) => (get(loginUser) === null ? false : true)
 })
-
-/**
- * This selector allows us to get a user value back
- */
- export const getUser = selector({
-    key: 'isLoggedIn',
-    get: ({ get }) => (get(loginUser))
-})
