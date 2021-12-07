@@ -11,29 +11,33 @@ import DatePicker         from '@mui/lab/DatePicker';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import Alert              from '@mui/material/Alert';
 import AlertTitle         from '@mui/material/AlertTitle';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
 
 import { getSchools } from '../../services/parse/schoolQueries';
-import { createTeam } from '../../services/parse/teamQueries';
+import { createEvent } from '../../services/parse/eventQueries';
 import { getUser } from '../../atoms/loginUser';
 
 export default function AddTeamView(){
 
-    const [school, setSchool] = useState({
+    const [hostSchool, setHostSchool] = useState({
         objectId: "",
         schoolName: "",
         city: "",
         state: ""
     });
-    const [year, setYear]             = useState(new Date());
-    const [wins, setWins]             = useState(0);
-    const [losses, setLosses]         = useState(0);
-    const [draws, setDraws]           = useState(0);
-    const [schoolDict, setSchoolDict] = useState({});
-    const [loading, setLoading]       = useState(true);
+    const [startDate, setStartDate]     = useState(new Date());
+    const [endDate, setEndDate]         = useState(new Date());
+    const [eventName, setEventName]     = useState();
+    const [city, setCity]               = useState();
+    const [state, setState]             = useState();
+    const [schoolDict, setSchoolDict]   = useState({});
+    const [loading, setLoading]         = useState(true);
+    const [value, setValue] = React.useState(null);
 
-    const user                        = useRecoilValue(getUser);
+    const user                          = useRecoilValue(getUser);
     // Allows for alert at bottom when login fails
-    const [updateFail, setUpdateFail] = useState(false);
+    const [updateFail, setUpdateFail]   = useState(false);
 
     // Get the list of schools to display
     useEffect(() => {
@@ -44,10 +48,9 @@ export default function AddTeamView(){
     }, [])
 
     const handleSubmit = () => {
-        if (user.get("role") == "player" 
-           || user.get("role") == "admin" 
-           || user.get("role") == "organizer"){
-            createTeam(year.getFullYear(), 1, school.objectId, wins, losses, draws);
+        if (user.get("role") == "admin" || user.get("role") == "organizer"){
+            createEvent(eventName, startDate, endDate, hostSchool.objectId, city, state);
+            console.log(eventName, startDate, endDate, hostSchool.objectId, city, state);
             setUpdateFail(false);
         }
         else {
@@ -76,7 +79,7 @@ export default function AddTeamView(){
                     }}
                 >
                     <Typography component="h1" variant="h3">
-                        Add Team
+                        Add Event
                     </Typography> 
                     <Box sx={{marginTop: '20px'}}>
                         <TextField
@@ -84,10 +87,10 @@ export default function AddTeamView(){
                             required
                             select
                             fullWidth
-                            label="School"
+                            label="Host School"
                             id="select school"
-                            value={school.schoolName}
-                            onChange={(event) => {setSchool(schoolDict[event.target.value])}}
+                            value={hostSchool.schoolName}
+                            onChange={(event) => {setHostSchool(schoolDict[event.target.value])}}
                         >
                             {
                             Object.values(schoolDict).map((school) => (
@@ -97,70 +100,68 @@ export default function AddTeamView(){
                             ))}
                         </TextField>
                     </Box>
-                    <Box>
-                        <DatePicker
+                    <Box sx={{marginTop: '20px'}}>
+                    <TextField
+                            margin="normal"
                             required
-                            views={['year']}
-                            label="Select Year"
-                            value={year}
-                            maxDate={new Date()}
-                            onChange={(newVal) => setYear(newVal)}
-                            renderInput={(params) => <TextField {...params} helperText={null} />}
-                        />
+                            fullWidth
+                            label="Event Name"
+                            id="eventName"
+                            onChange={(event) => setEventName(event.target.value)}
+                        >
+                        </TextField>
                     </Box>
-                    <Typography component="h3" variant="h5" sx={{marginTop: '10px'}}>
-                        Record
-                    </Typography>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            width: '100%'
-                        }}
-                    >   
-                        <TextField
-                            id="wins"
-                            label="Wins"
-                            type="number"
-                            value={wins}
-                            onChange={(event) => setWins(event.target.value)}
-                            InputLabelProps={{shrink: true}}
-                            style={{
-                                width: "12%",
-                            }}
-                        />
-                        <HorizontalRuleIcon />
-                        <TextField
-                            id="draws"
-                            label="Draws"
-                            type="number"
-                            value={draws}
-                            onChange={(event) => setDraws(event.target.value)}
-                            InputLabelProps={{shrink: true}}
-                            style={{
-                                width: "12%",
-                            }}
-                        />
-                        <HorizontalRuleIcon />
-                        <TextField
-                            id="losses"
-                            label="Losses"
-                            type="number"
-                            value={losses}
-                            onChange={(event) => setLosses(event.target.value)}
-                            InputLabelProps={{shrink: true}}
-                            style={{
-                                width: "12%",
-                            }}
-                        />
+                    <Box sx={{marginTop: '20px'}}>
+                    <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            label="City"
+                            id="city"
+                            onChange={(event) => setCity(event.target.value)}
+                        >
+                        </TextField>
+                    </Box>
+                    <Box sx={{marginTop: '20px'}}>
+                    <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            label="State"
+                            id="state"
+                            onChange={(event) => setState(event.target.value)}
+                        >
+                        </TextField>
+                    </Box>
+                    <Box>
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <DatePicker
+                                label="Start Date"
+                                value={value}
+                                onChange={(event) => {
+                                    setStartDate(event);
+                                }}
+                                renderInput={(params) => <TextField {...params} />}
+                            />
+                        </LocalizationProvider>
+                    </Box>                    
+                    <Box>
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <DatePicker
+                                label="End Date"
+                                value={value}
+                                onChange={(event) => {
+                                    setEndDate(event);
+                                }}
+                                renderInput={(params) => <TextField {...params} />}
+                            />
+                        </LocalizationProvider>
                     </Box>
                     <Button
                         variant="contained" 
                         onClick={handleSubmit}
                     >
-                        Add Team
+                        Add Event
                     </Button>
                 </Box>
                 {updateFail ? 
