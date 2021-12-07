@@ -13,7 +13,7 @@ import AddLocationAltIcon    from '@mui/icons-material/AddLocationAlt';
 
 import AboutView     from "./components/AboutView";
 import StandingsView from "./components/StandingsView";
-import EventsView    from "./components/EventsView";
+import EventView     from "./components/EventView";
 import StreamsView   from "./components/StreamsView";
 import FormsView     from "./components/FormsView";
 import ContactView   from "./components/ContactView";
@@ -54,7 +54,7 @@ const PUBLIC_PAGES = [
         name: 'Events',
         link: '/events',
         icon: <EventIcon />,
-        component: <EventsView />
+        component: <EventView />
     },
     {
         id: 'streams',
