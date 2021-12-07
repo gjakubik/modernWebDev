@@ -18,23 +18,12 @@ ChartJS.register(
     LinearScale,
     PointElement,
     LineElement,
-    Title,
     Tooltip,
-    Legend
 );
 
 
 export const options = {
     responsive: true,
-    plugins: {
-        legend: {
-            position: 'top',
-        },
-        title: {
-            display: true,
-            text: 'Rankings by Year',
-        },
-    },
     scales: {
         y: {
             reverse: true,
