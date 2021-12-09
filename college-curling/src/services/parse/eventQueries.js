@@ -31,7 +31,7 @@ export const getEvents = async () => {
         // Use dict here so that ID can be easily accessed
         const finalObj = [];
         for (const event of results) {
-            const eventQuery = new Parse.Query(Parse.Object.extend('Event'));
+            //const eventQuery = new Parse.Query(Parse.Object.extend('Event'));
             //const event = await eventQuery.get(object.get("hostSchool"));
             finalObj.push({
                 objectId: event.id,

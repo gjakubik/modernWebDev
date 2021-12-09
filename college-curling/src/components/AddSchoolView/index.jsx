@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 
 import Button             from '@mui/material/Button';
@@ -25,7 +25,7 @@ export default function AddSchoolView(){
     const [updateSuccess, setUpdateSucces] = useState(false);
 
     const handleSubmit = () => {
-        if (user.get("role") == "admin"){
+        if (user.get("role") === "admin"){
             createSchool(schoolName, city, state);
             setUpdateFail(false);
             setUpdateSucces(true);        

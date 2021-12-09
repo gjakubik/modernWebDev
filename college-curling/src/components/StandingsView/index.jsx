@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { useHistory } from 'react-router';
 
-import Box       from '@mui/material/Box';
 import Table     from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -20,6 +19,7 @@ import { getTeamsByYear } from '../../services/parse/teamQueries';
 export default function StandingsView() {
 
 	const [teams, setTeams] = useState({});
+	// This throws error but setYear would be used for dropdown
 	const [year, setYear ]  = useState(new Date().getFullYear());
 
 	const setTeamInfo = useSetRecoilState(teamInfo);
@@ -31,7 +31,7 @@ export default function StandingsView() {
 			console.log(res);
 			setTeams(res);
 		});
-	}, []);
+	}, [year]);
 
 	const goTeamDetail = (teamId) => {
 		console.log(teamId);

@@ -45,7 +45,7 @@ export default function RegisterView(){
             setAdd(false);
         });
         }
-    }, [newUser, add]);
+    }, [newUser, add, setUser, history]);
 
     const onChangeHandler = (e) => {
         e.preventDefault();

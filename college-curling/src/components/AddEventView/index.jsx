@@ -8,7 +8,6 @@ import Box                from '@mui/material/Box';
 import Typography         from '@mui/material/Typography';
 import Container          from '@mui/material/Container';
 import DatePicker         from '@mui/lab/DatePicker';
-import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import Alert              from '@mui/material/Alert';
 import AlertTitle         from '@mui/material/AlertTitle';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
@@ -33,7 +32,6 @@ export default function AddTeamView(){
     const [state, setState]             = useState();
     const [schoolDict, setSchoolDict]   = useState({});
     const [loading, setLoading]         = useState(true);
-    const [value, setValue] = React.useState(null);
 
     const user                          = useRecoilValue(getUser);
     // Allows for alert at bottom when login fails
@@ -44,12 +42,11 @@ export default function AddTeamView(){
     useEffect(() => {
         // it needs to be async for the request, so capture the promise with a .then
         getSchools().then((result) => setSchoolDict(result));
-        console.log(schoolDict);
         setLoading(false);
     }, [])
 
     const handleSubmit = () => {
-        if (user.get("role") == "admin" || user.get("role") == "organizer"){
+        if (user.get("role") === "admin" || user.get("role") === "organizer"){
             createEvent(eventName, startDate, endDate, hostSchool.objectId, city, state);
             console.log(eventName, startDate, endDate, hostSchool.objectId, city, state);
             setUpdateFail(false);
@@ -140,7 +137,7 @@ export default function AddTeamView(){
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DatePicker
                                 label="Start Date"
-                                value={value}
+                                value={startDate}
                                 onChange={(event) => {
                                     setStartDate(event);
                                 }}
@@ -152,7 +149,7 @@ export default function AddTeamView(){
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DatePicker
                                 label="End Date"
-                                value={value}
+                                value={endDate}
                                 onChange={(event) => {
                                     setEndDate(event);
                                 }}
