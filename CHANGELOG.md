@@ -12,3 +12,18 @@ This release we added:
 - A way to store forms and content in Parse
  
 In the future, we are planning to add more views, beautify them, and refine the routing to have the user experience make the most sense possible.
+
+# 0.4.0
+This realease we added:
+- User roles!
+    - player
+    - coach
+    - admin
+- Events view
+- Event input for admins
+- Standings improvements
+- Team details view with graph
+- Players on each team
+- Made it publicly hosted on https://gavinjakubik.me/
+
+In the future, we want to continue to flesh out our views and add more functionality attached to the roles.
