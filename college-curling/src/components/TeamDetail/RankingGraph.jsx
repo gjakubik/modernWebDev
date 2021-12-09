@@ -6,12 +6,9 @@ import {
     LinearScale,
     PointElement,
     LineElement,
-    Title,
     Tooltip,
-    Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { Typography } from "@mui/material";
 
 ChartJS.register(
     CategoryScale,

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Parse               from 'parse';
 import { useHistory }      from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState }  from 'recoil';
 

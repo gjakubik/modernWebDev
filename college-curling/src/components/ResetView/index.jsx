@@ -48,7 +48,7 @@ export default function ResetView(){
         if (isSignedIn) {
             history.push("/");
         }
-    }, [])
+    }, [isSignedIn, history])
 
     return (
         <Box

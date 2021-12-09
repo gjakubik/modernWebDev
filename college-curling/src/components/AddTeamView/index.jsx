@@ -40,14 +40,13 @@ export default function AddTeamView(){
     useEffect(() => {
         // it needs to be async for the request, so capture the promise with a .then
         getSchools().then((result) => setSchoolDict(result));
-        console.log(schoolDict);
         setLoading(false);
     }, [])
 
     const handleSubmit = () => {
-        if (user.get("role") == "player" 
-           || user.get("role") == "admin" 
-           || user.get("role") == "organizer"){
+        if (user.get("role") === "player" 
+           || user.get("role") === "admin" 
+           || user.get("role") === "organizer"){
             createTeam(year.getFullYear(), 1, school.objectId, wins, losses, draws);
             setUpdateFail(false);
             setUpdateSucces(true);

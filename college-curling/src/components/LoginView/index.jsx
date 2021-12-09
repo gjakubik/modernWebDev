@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import Parse from 'parse';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 

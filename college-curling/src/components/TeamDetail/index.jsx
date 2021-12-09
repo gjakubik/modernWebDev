@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Typography } from "@mui/material";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 
 import { teamInfo } from "../../atoms/teamInfo";
 
@@ -15,7 +14,7 @@ import RankingGraph from "./RankingGraph";
 
 export default function TeamDetail() {
 
-    const [team, setTeam]       = useRecoilState(teamInfo);
+    const team                  = useRecoilValue(teamInfo);
     const [players, setPlayers] = useState([]);
     const [data, setData]       = useState({
         labels: [],
